@@ -1,7 +1,9 @@
 drop table if exists excuses;
 create table excuses (
   id integer primary key autoincrement,
-  title text not null
+  title text not null,
+  upvotes integer not null default 0,
+  downvotes integer not null default 0
 );
 insert into excuses (id, title)
   select 0 as id, "кампания уже заведена, но объемы появятся в понедельник" as title

@@ -2,7 +2,15 @@
 {% block body %}
   <div class=excuse>
       <a href="/" id="lnkReload">
-          <center>{{ excuse }}</center>
+          <center>{{ excuse.title }}</center>
       </a>
+      <div style="text-align:center;">
+          <form action="{{ url_for('index', up_vote=True) }}" method=post class=vote_up>
+            <input type=submit class=vote_up value="{{ excuse.up_text }} {{ excuse.vote_up }}"/>
+          </form>
+          <form action="{{ url_for('index', down_vote=True) }}" method=post class=vote_down>
+            <input type=submit class=vote_down value="{{ excuse.down_text }} {{ excuse.vote_down }}"/>
+          </form>
+      </div>
   </div>
 {% endblock %}
